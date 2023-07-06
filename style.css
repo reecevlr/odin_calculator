@@ -1,0 +1,93 @@
+:root {
+    --font_color: #3AA6B9;
+    --bg_color: #FFD0D0;
+    --border_color: #FF9EAA;
+    --button_color: #C1ECE4;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg_color);
+    height: 100vh;
+    width: 100vw;
+}
+
+footer {
+    background-color: var(--border_color);
+    position: absolute;
+    bottom: 0;
+
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+a, 
+a:visited {
+    color: inherit;
+}
+
+/* Component Classes */
+.btn {
+    margin: 3.5px;
+    padding: 10px;
+    width: 35px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Primary Classes */
+.container {
+    height: 100%;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.container-calc {
+    padding: 50px;
+    border: 2px solid #FF9EAA;
+    text-align: center;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: wrap column;
+}
+
+.container-display {
+    margin-bottom: 15px;
+}
+
+.calc-num {
+    display: flex;
+}
+
+.calc-op {
+    display: flex;
+}
+
+.fa-github {
+    color: var(--font);
+    font-size: 30px;
+    transition: transform 0.3s ease-in-out;
+}
+  
+.fa-github:hover {
+transform: rotate(360deg) scale(1.2);
+}
