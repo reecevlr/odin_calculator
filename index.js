@@ -10,6 +10,8 @@ const numbers = document.querySelectorAll('.num-btn');
 const operations = document.querySelectorAll('.op-btn');
 const clrBtn = document.querySelector('#clr');
 const ansBtn = document.querySelector('#ans');
+const ceBtn = document.querySelector('#ce');
+const decBtn = document.querySelector('#dec');
 const inDisplay = document.querySelector('#in-display');
 const opDisplay = document.querySelector('#op-display');
 
@@ -28,9 +30,24 @@ operations.forEach(operator => {
             opDisplay.textContent = '';
         }
 
+        opDisplay.textContent = '';
         let text = document.createTextNode(`${x} ${e.target.textContent}`);
         opDisplay.appendChild(text);
     });
+});
+
+decBtn.addEventListener('click', function(e) {
+    if (inDisplay.textContent.includes('.')) {
+        decBtn.disabled = true;
+    }
+    else {
+        setDisplay(e);
+    }
+});
+
+ceBtn.addEventListener('click', function(e) {
+    let text = inDisplay.textContent.slice(0, -1);
+    inDisplay.textContent = text;
 });
 
 ansBtn.addEventListener('click', function(e) {
@@ -80,7 +97,7 @@ function setDisplay(e) {
 
 function clearDisplay() {
     inDisplay.textContent = '0';
-    opDisplay.textContent = '';
+    opDisplay.textContent = '-';
 
     yFlag = false;
     opFlag = false;
