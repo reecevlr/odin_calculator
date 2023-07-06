@@ -69,7 +69,13 @@ a:visited {
     flex-direction: column;
 }
 
+#op-display {
+    margin-left: auto;
+    padding: 10px 30px 0 0;
+}
+
 #in-display {
+    padding-bottom: 10px;
 }
 
 .container-calc {
