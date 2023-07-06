@@ -8,6 +8,6 @@ Check it out [here](https://reecevlr.github.io/odin_calculator/)!
 - [x] Functionality
   - [x] Clear
   - [x] Solving
-  - [ ] Decimals
-  - [ ] Backspace
+  - [x] Decimals
+  - [x] Backspace
   - [ ] Keyboard Support
