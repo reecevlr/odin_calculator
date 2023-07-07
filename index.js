@@ -46,8 +46,17 @@ decBtn.addEventListener('click', function(e) {
 });
 
 ceBtn.addEventListener('click', function(e) {
+    if (inDisplay.textContent === '0') {
+        return;
+    }
+
     let text = inDisplay.textContent.slice(0, -1);
     inDisplay.textContent = text;
+
+    if (inDisplay.textContent === '') {
+        inDisplay.textContent = '0';
+        return;
+    }
 });
 
 ansBtn.addEventListener('click', function(e) {
@@ -121,16 +130,16 @@ function divide(x, y) {
 }
 
 function operate(op, x, y) {
-    if (op === '+') {
+    if (op === '\u002B') {
         return add(x, y);
     }
-    else if (op === '-') {
+    else if (op === '\u002D') {
         return subtract(x, y);
     }
-    else if (op === '*') {
+    else if (op === '\u00D7') {
         return multiply(x, y);
     }
-    else if (op === '/') {
+    else if (op === '\u00F7') {
         return divide(x, y);
     }
 }
