@@ -1,14 +1,21 @@
 :root {
-    --font_color: #3AA6B9;
+    --calc_color: #3AA6B9;
     --bg_color: #FFD0D0;
     --border_color: #FF9EAA;
     --button_color: #C1ECE4;
+    --num_font: 'Biryani', sans-serif;
+    --txt_font: 'Roboto Mono', monospace;
+    --clr_hover: #cf808a;
+    --ans_color: #5d736f;
 }
 
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+
+    font-family: var(--num_font);
+    font-size: 18px;
 }
 
 body {
@@ -38,17 +45,48 @@ a:visited {
 }
 
 /* Component Classes */
+footer p {
+    font-size: 14px;
+}
+
 .btn {
+    border: 0;
+    border-radius: 10px;
     margin: 3.5px;
     padding: 10px;
-    width: 35px;
+    width: 80px;
 
     display: flex;
     justify-content: center;
     align-items: center;
+
+    transition: 0.4s;
+}
+
+.txt {
+    font-family: var(--txt_font);
 }
 
 /* Primary Classes */
+.row-0,
+.row-1,
+.row-2, 
+.row-3,
+.row-4 {
+    display: flex;
+}
+
+.clr:hover,
+#ans:hover,
+.op-btn:hover {
+    filter: brightness(115%);
+}
+
+#clr:hover {
+    color: var(--button_color);
+    background-color: var(--clr_hover);
+}
+
 .container {
     height: 100%;
     width: 100%;
@@ -59,27 +97,10 @@ a:visited {
     flex-direction: column;
 }
 
-.container-display {
-    background-color: var(--button_color);
-    border-radius: 10px;
-    height: 50px;
-    width: 100%;
-
-    display: flex;
-    flex-direction: column;
-}
-
-#op-display {
-    margin-left: auto;
-    padding: 10px 30px 0 0;
-}
-
-#in-display {
-    padding-bottom: 10px;
-}
-
 .container-calc {
-    padding: 50px;
+    background-color: var(--calc_color);
+    border-radius: 10px;
+    padding: 40px;
     border: 2px solid #FF9EAA;
     text-align: center;
 
@@ -90,15 +111,44 @@ a:visited {
 }
 
 .container-display {
+    background-color: var(--button_color);
+    border-radius: 10px;
+    height: 70px;
     margin-bottom: 15px;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-.calc-num {
-    display: flex;
+.clr {
+    background-color: var(--border_color);
 }
 
-.calc-op {
-    display: flex;
+#op-display {
+    align-self: end;
+    padding-right: 10px;
+    padding-top: 10px;
+    font-size: 16px;
+}
+
+#in-display {
+    font-size: 28px;    
+}
+
+.row-0 {
+    justify-content: space-between;
+}
+
+#ans {
+    color: var(--button_color);
+    background-color: var(--ans_color);
+}
+
+.op-btn {
+    background-color: var(--button_color);
 }
 
 .fa-github {
