@@ -38,7 +38,7 @@ operations.forEach(operator => {
 
 decBtn.addEventListener('click', function(e) {
     if (inDisplay.textContent.includes('.')) {
-        decBtn.disabled = true;
+        return;
     }
     else {
         setDisplay(e);
