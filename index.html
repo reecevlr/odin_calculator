@@ -4,6 +4,9 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Biryani:wght@400;700&family=Roboto+Mono&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="style.css" />
         <script defer src="index.js"></script>
         <title>Calculator</title>
@@ -17,27 +20,35 @@
                     <p id="in-display">0</p>
                 </div>
                 <div class="calc-num">
-                    <button class="num-btn btn">1</button>
-                    <button class="num-btn btn">2</button>
-                    <button class="num-btn btn">3</button>
-                    <button class="num-btn btn">4</button>
-                    <button class="num-btn btn">5</button>
-                    <button class="num-btn btn">6</button>
-                    <button class="num-btn btn">7</button>
-                    <button class="num-btn btn">8</button>
-                    <button class="num-btn btn">9</button>
-                    <button class="num-btn btn">0</button>
+                    <div class="row-0">
+                        <button id="clr" class="clr btn txt">clear</button>
+                        <button id="ce" class="clr btn txt">CE</button>
+                    </div>
+                    <div class="row-1"> 
+                        <button class="num-btn btn">7</button>
+                        <button class="num-btn btn">8</button>
+                        <button class="num-btn btn">9</button>
+                        <button class="op-btn btn">&#247;</button>
+                    </div>
+                    <div class="row-2">
+                        <button class="num-btn btn">4</button>
+                        <button class="num-btn btn">5</button>
+                        <button class="num-btn btn">6</button>
+                        <button class="op-btn btn">&#215;</button>
+                    </div>
+                    <div class="row-3">
+                        <button class="num-btn btn">1</button>
+                        <button class="num-btn btn">2</button>
+                        <button class="num-btn btn">3</button>
+                        <button class="op-btn btn">&#43;</button>
+                    </div>
+                    <div class="row-4">
+                        <button class="num-btn btn">0</button>
+                        <button id="dec" class="btn">.</button>
+                        <button id="ans" class="btn">=</button>
+                        <button class="op-btn btn">&#45;</button>
+                    </div>
                 </div>
-                <div class="calc-op">
-                    <button class="op-btn btn">+</button>
-                    <button class="op-btn btn">-</button>
-                    <button class="op-btn btn">*</button>
-                    <button class="op-btn btn">/</button>
-                </div>
-                <button id="ce" class="btn">CE</button>
-                <button id="dec" class="btn">.</button>
-                <button id="ans" class="btn">=</button>
-                <button id="clr" class="btn">clear</button>
             </div>
         </main>
 
