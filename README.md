@@ -10,4 +10,4 @@ Check it out [here](https://reecevlr.github.io/odin_calculator/)!
   - [x] Solving
   - [x] Decimals
   - [x] Backspace
-  - [ ] Keyboard Support
+  - [x] Keyboard Support
