@@ -34,6 +34,9 @@ window.addEventListener('keydown', function(e) {
             e.preventDefault();
             supportKey('/');
             break;
+        case '.':
+            supportKey('.');
+            break;
         case 'Enter':
             supportKey('ans');
             break;
@@ -70,35 +73,6 @@ window.addEventListener('keydown', function(e) {
     }
 });
 
-function supportKey(key) {
-    prepareDisplayOutput();
-
-    switch (key) {
-        case '+':
-            setValues('\u002B');
-            return;
-        case '-':
-            setValues('\u002D');
-            return;
-        case '*':
-            setValues('\u00D7');
-            return;
-        case '/':
-            setValues('\u00F7');
-            return;
-        case 'ans':
-            if (yFlag) {
-                y = Number(inDisplay.textContent);
-            }
-            prepareDisplayOutput();
-            setAnswer();
-            return;
-    };
-
-    let text = document.createTextNode(key);
-    inDisplay.appendChild(text);
-}
-
 numbers.forEach(num => {
     num.addEventListener('click', setDisplay);
 });
@@ -107,14 +81,7 @@ operations.forEach(operator => {
     operator.addEventListener('click', setOperator)
 });
 
-decBtn.addEventListener('click', function(e) {
-    if (inDisplay.textContent.includes('.')) {
-        return;
-    }
-    else {
-        setDisplay(e);
-    }
-});
+decBtn.addEventListener('click', setDecimal);
 
 ansBtn.addEventListener('click', function(e) {
     if (yFlag) {
@@ -128,6 +95,14 @@ ceBtn.addEventListener('click', clearEntry);
 clrBtn.addEventListener('click', clearDisplay);
 
 /* Calculator Functions */
+function clearDisplay() {
+    inDisplay.textContent = '0';
+    opDisplay.textContent = '-';
+
+    yFlag = false;
+    opFlag = false;
+}
+
 function clearEntry() {
     if (inDisplay.textContent === '0') {
         return;
@@ -139,6 +114,15 @@ function clearEntry() {
     if (inDisplay.textContent === '') {
         inDisplay.textContent = '0';
         return;
+    }
+}
+
+function isDecimal() {
+    if (inDisplay.textContent.includes('.')) {
+        return true;
+    }
+    else {
+        return false;
     }
 }
 
@@ -175,6 +159,15 @@ function setAnswer() {
     ansFlag = true;
 }
 
+function setDecimal(e) {
+    if (isDecimal()) {
+        return;
+    }
+    else {
+        setDisplay(e);
+    }
+}
+
 function setDisplay(e) {
     prepareDisplayOutput();
 
@@ -205,12 +198,41 @@ function setValues(operator) {
     opDisplay.appendChild(text);
 }
 
-function clearDisplay() {
-    inDisplay.textContent = '0';
-    opDisplay.textContent = '-';
+function supportKey(key) {
+    prepareDisplayOutput();
 
-    yFlag = false;
-    opFlag = false;
+    switch (key) {
+        case '+':
+            setValues('\u002B');
+            return;
+        case '-':
+            setValues('\u002D');
+            return;
+        case '*':
+            setValues('\u00D7');
+            return;
+        case '/':
+            setValues('\u00F7');
+            return;
+        case '.':
+            if (isDecimal()) {
+                return;
+            }
+            
+            prepareDisplayOutput();
+            inDisplay.append('.');
+            return;
+        case 'ans':
+            if (yFlag) {
+                y = Number(inDisplay.textContent);
+            }
+            prepareDisplayOutput();
+            setAnswer();
+            return;
+    };
+
+    let text = document.createTextNode(key);
+    inDisplay.appendChild(text);
 }
 
 /* Math Functions */
